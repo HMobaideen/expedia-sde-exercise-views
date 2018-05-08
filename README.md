@@ -4,9 +4,9 @@ This project build with Angular.
 
 ## Build With 
 
-[Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
-[PrimeNG](https://www.primefaces.org/primeng/)
-[Bootstrap 3](https://getbootstrap.com/)
+- [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+- [PrimeNG](https://www.primefaces.org/primeng/)
+- [Bootstrap 3](https://getbootstrap.com/)
 
 
 ## Build

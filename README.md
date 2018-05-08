@@ -10,11 +10,11 @@ This project build with Angular, where it has been built, files bundeled and inj
 
 ## Guid 
 
-- [UI design (HTML File)](https://github.com/HMobaideen/expedia-sde-exercise-views/blob/master/src/app/app.component.html).
+- [UI design - src/app/app/component.html](https://github.com/HMobaideen/expedia-sde-exercise-views/blob/master/src/app/app.component.html).
   > UI build with PrimeNG component, [DataView](https://www.primefaces.org/primeng/#/dataview) and [FieldSet](https://www.primefaces.org/primeng/#/fieldset).
-- [Functionality using TypeScript](https://github.com/HMobaideen/expedia-sde-exercise-views/blob/master/src/app/app.component.ts).
+- [Functionality using TypeScript - src/app/app/component.ts](https://github.com/HMobaideen/expedia-sde-exercise-views/blob/master/src/app/app.component.ts).
   > Build functionality needed to request REST API.
-- [Custom Style (CSS File)](https://github.com/HMobaideen/expedia-sde-exercise-views/blob/master/src/app/app.component.css)
+- [Custom Style - src/app/app/component.css](https://github.com/HMobaideen/expedia-sde-exercise-views/blob/master/src/app/app.component.css)
 - [module settings](https://github.com/HMobaideen/expedia-sde-exercise-views/blob/master/src/app/app.module.ts).
   > Importing all needed modules, that installed by [npm](https://www.npmjs.com/).
 

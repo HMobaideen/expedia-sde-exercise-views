@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="row custom-mx-3">
+    <p-fieldset #fieldSetSearch [toggleable]="true">
+      <p-header> Search Hotels</p-header>
+      <form>
+        <div class="row">
+          <div class="col-md-8">
+            <label class="control-label" for="name">Going to</label>
+            <input class="form-control" style="height:50px" id="destinationName" name="destinationName" type="text" [(ngModel)]="filterParams.destinationName"
+              placeholder="Destination" required>
+          </div>
+          <div class="col-md-4">
+            <label class="control-label" for="name">Length of Stay</label>
+            <input class="form-control" style="height:50px" id="lengthOfStay" name="lengthOfStay" type="number" [(ngModel)]="filterParams.lengthOfStay"
+              min="0" placeholder="Days" />
+          </div>
+        </div>
+
+        <div class="row custom-mx-3">
+          <div class="col-md-6">
+            <label class="control-label" for="minTripStartDate">Min Trip Start Date</label>
+            <p-calendar [(ngModel)]="filterParams.minTripStartDate" showButtonBar="true" showIcon="true" dateFormat="yy-mm-dd" dataType="string"
+              name="minTripStartDate" placeholder="Min Start Date" inputStyleClass="date-style"></p-calendar>
+          </div>
+          <div class="col-md-6">
+            <label class="control-label" for="maxTripStartDate">Max Trip Start Date</label>
+            <p-calendar [(ngModel)]="filterParams.maxTripStartDate" showButtonBar="true" showIcon="true" dateFormat="yy-mm-dd" dataType="string"
+              name="maxTripStartDate" placeholder="Max Start Date" inputStyleClass="date-style"></p-calendar>
+          </div>
+        </div>
+
+        <div class="row custom-mx-3">
+          <div class="col-md-3">
+            <label class="control-label " for="minStartRating">Min Star Rating</label>
+            <p-rating start="5" cancel="true" [(ngModel)]="filterParams.minStartRating" name="minStartRating"></p-rating>
+          </div>
+          <div class="col-md-3">
+            <label class="control-label" for="maxStartRating">Max Star Rating</label>
+            <p-rating start="5" cancel="true" name="maxStartRating" [(ngModel)]="filterParams.maxStartRating"></p-rating>
+          </div>
+          <div class="col-md-3">
+            <label class="control-label " for="minTotalRating">Min Total Rating</label>
+            <p-rating start="5" cancel="true" [(ngModel)]="filterParams.minTotalRating" name="minTotalRating"></p-rating>
+          </div>
+          <div class="col-md-3">
+            <label class="control-label " for="maxTotalRating">Max Total Rating</label>
+            <p-rating start="5" cancel="true" [(ngModel)]="filterParams.maxTotalRating" name="maxTotalRating"></p-rating>
+          </div>
+        </div>
+
+        <div class="row custom-mx-3">
+          <div class="col-md-3">
+            <label class="control-label " for="minGuestRating">Min Guest Rating</label>
+            <p-rating start="5" cancel="true" [(ngModel)]="filterParams.minGuestRating" name="minGuestRating"></p-rating>
+          </div>
+          <div class="col-md-3">
+            <label class="control-label " for="maxGuestRating">Max Guest Rating</label>
+            <p-rating start="5" cancel="true" [(ngModel)]="filterParams.maxGuestRating" name="maxGuestRating"></p-rating>
+          </div>
+
+          <div class="col-md-6">
+            <button class="btn btn-primary search-btn" name="submit" type="button" (click)="getHotels()">Search</button>
+          </div>
+
+        </div>
+      </form>
+    </p-fieldset>
+  </div>
+  <div class="row">
+    <ng-template [ngIf]="showDataView">
+      <p-dataView [value]="hotels" [paginator]="hotels.length>3" [rows]="3"
+       paginatorPosition="bottom"  
+       emptyMessage="No Hotels Found">
+        <p-header>
+          <b style="margin-left: 45%">List of Hotels</b>
+        </p-header>
+
+        <ng-template let-hotel pTemplate="listItem">
+          <div class="ui-g" style="border-bottom: 1px solid #d9d9d9 ; height: 124px;margin-top: 10px;">
+            <div class="ui-g-12 ui-md-3 padding-0">
+              <img class="data-view-image-size" src="{{hotel.hotelInfo.hotelImageUrl}}">
+            </div>
+            <div class="ui-g-12 ui-md-6 hotelInfo-details">
+              <div class="ui-g-10 ui-sm-6">
+                <a href="{{hotel.hotelUrls.hotelInfositeUrl}}" target="_blank">
+                  <b class="text-primary">{{hotel.hotelInfo.hotelName}} &nbsp;
+                    <i class="fa fa-paper-plane"> </i>
+                  </b>
+                </a>
+              </div>
+
+              <div class="ui-g-10 ui-sm-6">
+                <i class="text-secondary">{{hotel.hotelInfo.hotelLongDestination}}</i>
+              </div>
+
+            </div>
+            <div class="ui-g-12 ui-md-3">
+
+              <div class="ui-g-10 ui-sm-6">
+                <p-rating start="5" readonly="true" [(ngModel)]="hotel.hotelInfo.hotelGuestReviewRating" cancel="false"></p-rating>
+              </div>
+
+
+              <div class="ui-g-10 ui-sm-6">
+                <b>{{hotel.hotelPricingInfo.currency}}</b>
+                <span>{{hotel.hotelPricingInfo.averagePriceValue}}</span>
+              </div>
+
+
+            </div>
+          </div>
+        </ng-template>
+      </p-dataView>
+    </ng-template>
+
+  </div>
+</div>

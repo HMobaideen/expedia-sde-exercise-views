@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     let headers = new HttpHeaders();
     headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
-    this.http.post('http://localhost:8888/hotels/webapi/hotelsFinder'
+    this.http.post('webapi/hotelsFinder'
       , this.getFilterParams()
       , { headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded') })
       .subscribe((result: any) => {
